@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Feedback System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>College Student Feedback System</h1>
+
+        <p class="subtitle">
+            Share your valuable feedback
+        </p>
+
+        <form action="/submit_feedback" method="POST">
+
+            <label>Student Name</label>
+            <input type="text"
+                   name="student_name"
+                   placeholder="Enter your name"
+                   required>
+
+
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+
+            <label>Course / Class</label>
+            <input type="text"
+                   name="course"
+                   placeholder="Example: TY B.Sc. IT"
+                   required>
+
+
+            <label>Semester</label>
+            <select name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 2">Semester 2</option>
+                <option value="Semester 3">Semester 3</option>
+                <option value="Semester 4">Semester 4</option>
+                <option value="Semester 5">Semester 5</option>
+                <option value="Semester 6">Semester 6</option>
+            </select>
+
+
+            <label>Subject Name</label>
+            <input type="text"
+                   name="subject_name"
+                   placeholder="Enter subject name"
+                   required>
+
+
+            <label>Faculty Name</label>
+            <input type="text"
+                   name="faculty_name"
+                   placeholder="Enter faculty name"
+                   required>
+
+
+            <label>Rating</label>
+            <select name="rating" required>
+                <option value="">Select Rating</option>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Very Good</option>
+                <option value="3">3 - Good</option>
+                <option value="2">2 - Average</option>
+                <option value="1">1 - Poor</option>
+            </select>
+
+
+            <label>Your Feedback</label>
+            <textarea name="message"
+                      placeholder="Write your feedback here..."
+                      required></textarea>
+
+
+            <button type="submit">
+                Submit Feedback
+            </button>
+
+        </form>
+
+        <a href="/feedback" class="view-button">
+            View All Feedback
+        </a>
+
+    </div>
+
+</body>
+
+</html>

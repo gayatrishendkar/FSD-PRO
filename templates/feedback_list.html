@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>View Feedback</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="list-container">
+
+        <h1>Student Feedback List</h1>
+
+        <a href="/" class="back-button">
+            Back to Feedback Form
+        </a>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Subject</th>
+                <th>Faculty</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Date & Time</th>
+                <th>Action</th>
+            </tr>
+
+            {% for feedback in feedbacks %}
+
+            <tr>
+                <td>{{ feedback[0] }}</td>
+                <td>{{ feedback[1] }}</td>
+                <td>{{ feedback[2] }}</td>
+                <td>{{ feedback[3] }}</td>
+                <td>{{ feedback[4] }}</td>
+                <td>{{ feedback[5] }}</td>
+                <td>{{ feedback[6] }}</td>
+                <td>{{ feedback[7] }}/5</td>
+                <td>{{ feedback[8] }}</td>
+                <td>{{ feedback[9] }}</td>
+
+                <td>
+                    <a href="/delete/{{ feedback[0] }}"
+                       class="delete-button"
+                       onclick="return confirm('Are you sure you want to delete this feedback?')">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% if feedbacks|length == 0 %}
+            <p class="no-data">
+                No feedback available.
+            </p>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
